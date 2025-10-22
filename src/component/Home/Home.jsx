@@ -3,6 +3,7 @@ import HeroSlider from '../Header/HeroSlider';
 import PopularServices from '../pages/PopularServices';
 
 import WinterCareTips from '../pages/WinterCareTips';
+import ExpertsVets from '../pages/ExpertsVets';
 
 const Home = () => {
   // const navigation = useNavigation();
@@ -16,6 +17,7 @@ const Home = () => {
       <HeroSlider></HeroSlider>
       <PopularServices></PopularServices>
       <WinterCareTips></WinterCareTips>
+      <ExpertsVets></ExpertsVets>
     </div>
   );
 };

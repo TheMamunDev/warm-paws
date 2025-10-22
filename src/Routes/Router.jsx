@@ -15,6 +15,7 @@ export const router = createBrowserRouter([
         path: '',
         Component: Home,
         loader: async () => {
+          await new Promise(resolve => setTimeout(resolve, 5000));
           const [petResult, sliderResult] = await Promise.all([
             fetch('../petData.json'),
             fetch('../sliderData.json'),
@@ -32,6 +33,8 @@ export const router = createBrowserRouter([
       {
         path: 'services',
         Component: Services,
+        loader: () => fetch('../petData.json'),
+        HydrateFallback: Spinner,
       },
     ],
   },
