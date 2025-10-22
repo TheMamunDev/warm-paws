@@ -34,7 +34,7 @@ const PetCard = ({ service, index }) => {
           </div>
           <div className="card-actions justify-end">
             <NavLink
-              to={`/services/${service.serviceId}`}
+              to={`/services-details/${service.serviceId}`}
               className="btn bg-[#F4A261] hover:bg-[#E76F51] text-white font-semibold border-none shadow-md transition duration-300 w-full"
             >
               View Details

@@ -4,6 +4,9 @@ import Root from '../Layout/Root';
 import Home from '../component/Home/Home';
 import Services from '../component/pages/Services';
 import Spinner from '../component/Spinner';
+import ServicesDetails from '../component/pages/ServicesDetails';
+import LoginPage from '../component/AuthPage/LoginPAge';
+import RegisterPage from '../component/AuthPage/RegisterPage';
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +18,6 @@ export const router = createBrowserRouter([
         path: '',
         Component: Home,
         loader: async () => {
-          await new Promise(resolve => setTimeout(resolve, 5000));
           const [petResult, sliderResult] = await Promise.all([
             fetch('../petData.json'),
             fetch('../sliderData.json'),
@@ -35,6 +37,20 @@ export const router = createBrowserRouter([
         Component: Services,
         loader: () => fetch('../petData.json'),
         HydrateFallback: Spinner,
+      },
+      {
+        path: 'services-details/:id',
+        Component: ServicesDetails,
+        loader: () => fetch('../petData.json'),
+        HydrateFallback: Spinner,
+      },
+      {
+        path: 'login',
+        Component: LoginPage,
+      },
+      {
+        path: 'register',
+        Component: RegisterPage,
       },
     ],
   },

@@ -22,7 +22,6 @@ const Services = () => {
     const timeout = setTimeout(() => {
       setLoading(false);
     }, 400);
-
     return () => clearTimeout(timeout);
   }, [searchTerm, selectedCategory, maxPrice]);
 
