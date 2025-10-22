@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { use, useContext, useState } from 'react';
 import { Mail, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
 
 const LoginPage = () => {
+  const { name } = useContext(AuthContext);
+  console.log(name);
   const [showPass, setShowPass] = useState(false);
   const handleLogin = e => {
     e.preventDefault();
