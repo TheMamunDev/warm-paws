@@ -17,11 +17,8 @@ const Footer = () => {
   ];
   return (
     <footer className="p-10 bg-[#264653] text-white mt-20">
-      {/* Main Content Grid (DaisyUI/Tailwind Grid) */}
       <div className="footer max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-        {/* Column 1: WarmPaws Brand & Mission */}
         <aside className="col-span-2 md:col-span-1">
-          {/* Logo text uses the warm Primary color */}
           <h4 className="text-3xl font-extrabold text-[#F4A261] mb-3">
             WarmPaws
           </h4>
@@ -31,7 +28,6 @@ const Footer = () => {
           </p>
         </aside>
 
-        {/* Column 2: Quick Links */}
         <nav>
           <h6 className="footer-title text-[#F4A261] uppercase tracking-wider mb-3 font-semibold">
             Quick Links
@@ -46,8 +42,6 @@ const Footer = () => {
             </NavLink>
           ))}
         </nav>
-
-        {/* Column 3: Legal & Information */}
         <nav>
           <h6 className="footer-title text-[#F4A261] uppercase tracking-wider mb-3 font-semibold">
             Information
@@ -62,14 +56,11 @@ const Footer = () => {
             </NavLink>
           ))}
         </nav>
-
-        {/* Column 4: Contact & Social */}
         <nav>
           <h6 className="footer-title text-[#F4A261] uppercase tracking-wider mb-3 font-semibold">
             Connect
           </h6>
 
-          {/* Contact Info (Thematic Placeholder) */}
           <div className="flex items-start mb-4 text-sm font-light text-gray-300">
             <MapPin
               size={18}
@@ -83,10 +74,7 @@ const Footer = () => {
             <Mail size={18} className="text-[#F4A261] mr-2 flex-shrink-0" />
             <p className="link link-hover">contact@warmpaws.com</p>
           </div>
-
-          {/* Social Links Section */}
           <div className="grid grid-flow-col gap-4 mt-6">
-            {/* Icons use the Primary color on hover */}
             <a
               href="#"
               className="text-white hover:text-[#F4A261] transition duration-200"
@@ -109,7 +97,6 @@ const Footer = () => {
         </nav>
       </div>
 
-      {/* Bottom Section: Copyright */}
       <div className="footer-center p-4 pt-8 border-t border-gray-700 mt-10 text-sm">
         <p className="text-gray-400">
           Copyright © {new Date().getFullYear()} - WarmPaws. All rights

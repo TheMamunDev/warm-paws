@@ -1,7 +1,8 @@
 import React from 'react';
 import HeroSlider from '../Header/HeroSlider';
 import PopularServices from '../pages/PopularServices';
-import { useNavigation } from 'react-router';
+
+import WinterCareTips from '../pages/WinterCareTips';
 
 const Home = () => {
   // const navigation = useNavigation();
@@ -14,6 +15,7 @@ const Home = () => {
     <div className="max-w-11/12 mx-auto">
       <HeroSlider></HeroSlider>
       <PopularServices></PopularServices>
+      <WinterCareTips></WinterCareTips>
     </div>
   );
 };

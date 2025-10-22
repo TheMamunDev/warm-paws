@@ -6,8 +6,7 @@ const PetCard = ({ service, index }) => {
   return (
     <div>
       <div
-        key={service.serviceId}
-        className="card bg-white shadow-xl rounded-xl overflow-hidden transform hover:shadow-2xl hover:scale-[1.02] transition duration-500 border border-gray-100"
+        className="card bg-white h-full shadow-xl rounded-xl overflow-hidden transform hover:shadow-2xl hover:scale-[1.02] transition duration-500 border border-gray-100"
         data-aos="fade-up"
         data-aos-delay={index * 150}
         data-aos-duration="1000"

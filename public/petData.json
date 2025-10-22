@@ -8,7 +8,7 @@
     "rating": 4.9,
     "slotsAvailable": 4,
     "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
-    "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "https://i.ibb.co.com/RpV78fTM/71-Fdqq5v8g-L-UF1000-1000-QL80.jpg",
     "category": "Clothing"
   },
   {
@@ -20,7 +20,127 @@
     "rating": 4.8,
     "slotsAvailable": 3,
     "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
-    "image": "https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "https://i.ibb.co.com/hxLWgptP/level-2-dog-grooming-course-scaled.webp",
     "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Pet Thermal Bedding Setup",
+    "providerName": "WarmPaws Home Care",
+    "providerEmail": "support@warmpaws.com",
+    "price": 40,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Install thermal and heated bedding to keep pets cozy during winter nights.",
+    "image": "https://i.ibb.co.com/jvv31M8r/71v6-OLt7k-L.jpg",
+    "category": "Home Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Paw Wax Application",
+    "providerName": "HappyPaws Clinic",
+    "providerEmail": "contact@happypaws.com",
+    "price": 15,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Protect your pet’s paws from ice, snow, and salt with special paw wax.",
+    "image": "https://i.ibb.co.com/TxbCgrJs/71-Pa-B9jl7s-L-AC-UL495-SR435-495.jpg",
+    "category": "Paw Care"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Cold Weather Pet Massage",
+    "providerName": "PetRelax Spa",
+    "providerEmail": "info@petrelax.com",
+    "price": 50,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Relaxing massage to improve circulation and warmth during winter months.",
+    "image": "https://i.ibb.co.com/NdR7DNJJ/1.png",
+    "category": "Wellness"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Coat Conditioning",
+    "providerName": "FurEver Groomers",
+    "providerEmail": "hello@furevergroomers.com",
+    "price": 35,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Deep conditioning treatment to maintain a shiny, thick coat during cold months.",
+    "image": "https://i.ibb.co.com/YFrpRf9Q/Cpq-Y2-N-large-520x500-dc8c1447-1c1f-4dc7-a3a1-69d15cd2aae4-480x.jpg",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Dog Snow Boot Fitting",
+    "providerName": "PawSafe Outfitters",
+    "providerEmail": "contact@pawsafe.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Fitting of waterproof snow boots to protect dogs’ paws from cold and ice.",
+    "image": "https://i.ibb.co.com/TMxbr4g7/DSCF9486-fallback.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Indoor Exercise & Winter Play Session",
+    "providerName": "ActivePaws Center",
+    "providerEmail": "info@activepaws.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Supervised indoor activity sessions to keep pets active and healthy during winter.",
+    "image": "https://i.ibb.co.com/WvWT9QTq/Adobe-Stock-817505259-scaled.jpg",
+    "category": "Exercise"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Winter Hydration & Nutrition Plan",
+    "providerName": "HealthyPets Nutrition",
+    "providerEmail": "support@healthypets.com",
+    "price": 30,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Custom winter diet and hydration plan to boost pet immunity in cold weather.",
+    "image": "https://i.ibb.co.com/1ftt2xkt/20240329-Dog-Food-Update-2x1.webp",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Pet Winter Safety Consultation",
+    "providerName": "SafePaws Advisors",
+    "providerEmail": "hello@safepaws.com",
+    "price": 45,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Expert consultation on winter safety, clothing, and outdoor exposure limits for pets.",
+    "image": "https://i.ibb.co.com/przCffdj/Untitled-2-Facebook-Post-Graphic-2.png",
+    "category": "Consultation"
+  },
+  {
+    "serviceId": 11,
+    "serviceName": "Heated Pet Blanket Rental",
+    "providerName": "CozyCompanions",
+    "providerEmail": "info@cozycompanions.com",
+    "price": 15,
+    "rating": 4.6,
+    "slotsAvailable": 10,
+    "description": "Rent heated blankets for your pets to keep them warm without permanent installation.",
+    "image": "https://i.ibb.co.com/1fj7DNtp/71-Hl-Z84-ZLTL.jpg",
+    "category": "Home Comfort"
+  },
+  {
+    "serviceId": 12,
+    "serviceName": "Winter Flea & Tick Protection",
+    "providerName": "PetHealth Clinic",
+    "providerEmail": "contact@pethealth.com",
+    "price": 40,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Prevent fleas and ticks that survive in winter with a seasonal protective treatment.",
+    "image": "https://i.ibb.co.com/YH7q1Rf/2024-02-22-Flea-and-tick-prevention-in-winter-Hero.jpg",
+    "category": "Health"
   }
 ]
