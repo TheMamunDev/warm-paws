@@ -9,6 +9,7 @@ import LoginPage from '../component/AuthPage/LoginPAge';
 import RegisterPage from '../component/AuthPage/RegisterPage';
 import Profile from '../component/pages/Profile';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import ForgotPasswordPage from '../component/AuthPage/ForgetPassword';
 
 export const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
             <Profile></Profile>
           </PrivateRoute>
         ),
+      },
+      {
+        path: 'forgot-password',
+        element: <ForgotPasswordPage></ForgotPasswordPage>,
       },
     ],
   },

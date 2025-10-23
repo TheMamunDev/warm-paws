@@ -1,5 +1,5 @@
 import React, { use, useEffect, useState } from 'react';
-import { NavLink } from 'react-router';
+import { Navigate, NavLink, useNavigate } from 'react-router';
 import MyLink from '../MyLink';
 import { AuthContext } from '../../context/AuthContext';
 import Spinner from '../Spinner';
@@ -8,6 +8,7 @@ const Navbar = () => {
   const { user, logOut, setLoading, loading } = use(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   console.log(user);
+  const navigate = useNavigate();
   useEffect(() => {
     if (user) {
       setIsLoggedIn(true);
@@ -78,35 +79,33 @@ const Navbar = () => {
           <span className="loading loading-dots loading-sm text-[#F4A261] "></span>
         ) : isLoggedIn ? (
           <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="relative group btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full ring-2 ring-[#F4A261] ring-offset-2">
-                <img alt={`${user?.displayName} avatar`} src={user?.photoURL} />
-              </div>
-              <span className="absolute top-full mt-2 right-0 hidden group-hover:block bg-white text-gray-800 text-xs px-2 py-1 rounded-md whitespace-nowrap shadow-md transition-all duration-200 ease-in-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100">
-                {user?.displayName}
-              </span>
-            </div>
+            <div className="flex items-center gap-3 relative">
+              <div
+                tabIndex={0}
+                role="button"
+                className="relative group btn btn-ghost btn-circle avatar"
+              >
+                <div
+                  onClick={() => navigate('/profile')}
+                  className="w-10 rounded-full ring-2 ring-[#F4A261] ring-offset-2"
+                >
+                  <img
+                    alt={`${user?.displayName || 'User'} avatar`}
+                    src={user?.photoURL || 'https://via.placeholder.com/40'}
+                  />
+                </div>
 
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow-xl menu menu-sm dropdown-content bg-white rounded-box w-52"
-            >
-              <li className="p-2 font-bold text-secondary">
-                {user?.displayName}
-              </li>
-              <li>
-                <NavLink to="/profile">Profile Settings</NavLink>
-              </li>
-              <li>
-                <a onClick={handleLogOut} className="text-red-500">
-                  Logout
-                </a>
-              </li>
-            </ul>
+                <span className="absolute top-full mt-2 right-0 hidden group-hover:block bg-white text-gray-800 text-xs px-2 py-1 rounded-md whitespace-nowrap shadow-md transition-all duration-200 ease-in-out opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100">
+                  {user?.displayName || 'Unknown User'}
+                </span>
+              </div>
+              <button
+                onClick={handleLogOut}
+                className="btn bg-[#F4A261] hover:bg-[#E76F51] text-white font-bold border-none transition duration-300"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         ) : (
           <>

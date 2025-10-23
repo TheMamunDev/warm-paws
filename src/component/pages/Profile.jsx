@@ -43,11 +43,11 @@ const Profile = () => {
           </div>
         </div>
         <div className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
-          <Phone size={24} className="text-[#F4A261] flex-shrink-0" />
+          <Mail size={24} className="text-[#F4A261] flex-shrink-0" />
           <div>
-            <p className="text-sm text-gray-500">Phone</p>
+            <p className="text-sm text-gray-500">Email Verifed?</p>
             <p className="font-semibold text-[#264653]">
-              {user?.emailVerified}
+              {user?.emailVerified ? 'Verifed' : 'Not Verified'}
             </p>
           </div>
         </div>

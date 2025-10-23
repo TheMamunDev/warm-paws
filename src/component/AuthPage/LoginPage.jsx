@@ -1,16 +1,27 @@
-import React, { use, useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Mail, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
+import { handleFirebaseError } from '../../utilis/errorHandle';
+import { toast } from 'react-toastify';
+import usePageTitle from '../Hooks/useTitle';
+import Spinner from '../Spinner';
 
 const LoginPage = () => {
-  const { user, login } = useContext(AuthContext);
-  console.log(user);
+  usePageTitle('Login - WarmPaws');
+  const { user, login, handleGoogleLogin, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-
+  const [email, setEmail] = useState('');
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+  if (user) {
+    navigate(from, { replace: true });
+    return;
+  }
   const handleLogin = e => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -22,7 +33,22 @@ const LoginPage = () => {
         console.log(result.user);
       })
       .catch(error => {
-        console.log(error.message);
+        handleFirebaseError(error);
+        // return;
+      });
+  };
+
+  const handleGoogleLoginBtn = e => {
+    e.preventDefault();
+    handleGoogleLogin()
+      .then(() => {
+        navigate(from, { replace: true });
+        // console.log(result.user);
+        toast.success('Successfully Logged in');
+      })
+      .catch(error => {
+        handleFirebaseError(error);
+        // return;
       });
   };
   const showPassHandle = e => {
@@ -52,6 +78,8 @@ const LoginPage = () => {
                 <input
                   type="email"
                   name="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
                   required
                   className="grow text-[#264653] focus:outline-none"
                   placeholder="Email Address"
@@ -73,7 +101,7 @@ const LoginPage = () => {
               </label>
               <div className="label pt-1 pb-0 justify-end">
                 <NavLink
-                  to="/forgot-password"
+                  to={`/forgot-password?email=${encodeURIComponent(email)}`}
                   className="label-text-alt text-[#264653] hover:text-[#F4A261] text-sm transition-colors"
                 >
                   Forgot password?
@@ -86,7 +114,15 @@ const LoginPage = () => {
             >
               <LogIn size={20} /> Login
             </button>
-            <button className="btn btn-lg w-full bg-white text-black border-[#e5e5e5]">
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-px w-16 bg-[#F4A261]"></div>
+              <span className="text-sm text-black opacity-50">or</span>
+              <div className="h-px w-16 bg-[#F4A261]"></div>
+            </div>
+            <button
+              onClick={handleGoogleLoginBtn}
+              className="btn btn-lg w-full bg-white text-black border-[#e5e5e5]"
+            >
               <svg
                 aria-label="Google logo"
                 width="16"

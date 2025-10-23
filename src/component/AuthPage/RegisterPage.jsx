@@ -9,14 +9,20 @@ import {
   ImageUp,
   Dot,
 } from 'lucide-react';
-import { NavLink, useNavigate } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
+import { handleFirebaseError } from '../../utilis/errorHandle';
+import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const { signUp, user, loading, updateUserProfile } = useContext(AuthContext);
+  const { signUp, user, loading, updateUserProfile, handleGoogleLogin } =
+    useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   useEffect(() => {
     if (!loading && user) {
       navigate('/');
@@ -34,7 +40,19 @@ const RegisterPage = () => {
       return 'Password must be at least 6 characters long.';
     return '';
   };
-
+  const handleGoogleBtn = e => {
+    e.preventDefault();
+    handleGoogleLogin()
+      .then(() => {
+        navigate(from, { replace: true });
+        // console.log(result.user);
+        toast.success('Successfully Logged in');
+      })
+      .catch(error => {
+        handleFirebaseError(error);
+        // return;
+      });
+  };
   const handleRegister = e => {
     e.preventDefault();
     const password = e.target.password.value;
@@ -138,7 +156,15 @@ const RegisterPage = () => {
             >
               <UserPlus size={20} /> Create WarmPaws Account
             </button>
-            <button className="btn btn-lg w-full bg-white text-black border-[#e5e5e5]">
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-px w-16 bg-[#F4A261]"></div>
+              <span className="text-sm text-black opacity-50">or</span>
+              <div className="h-px w-16 bg-[#F4A261]"></div>
+            </div>
+            <button
+              onClick={handleGoogleBtn}
+              className="btn btn-lg w-full bg-white text-black border-[#e5e5e5]"
+            >
               <svg
                 aria-label="Google logo"
                 width="16"
