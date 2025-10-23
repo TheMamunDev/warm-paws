@@ -10,12 +10,17 @@ import {
 } from 'lucide-react';
 import { AuthContext } from '../../context/AuthContext';
 import Spinner from '../Spinner';
-import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
+import { auth } from '../../firebase/firebase.init';
 
 const Profile = () => {
-  const { user, updateUserProfile, loading } = use(AuthContext);
+  const { user, updateUserProfile, loading, setUser, logOut } =
+    use(AuthContext);
   const [activeSection, setActiveSection] = useState('details');
-  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut();
+  };
   const AccountDetails = () => (
     <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-t-4 border-[#F4A261]">
       <h2 className="text-3xl font-bold text-[#264653] mb-6">
@@ -53,50 +58,35 @@ const Profile = () => {
   const UpdateProfile = () => {
     const [userName, setUserName] = useState('');
     const [userPhotoUrl, setUserPhotoUrl] = useState('');
-    const [isSuccess, setIsSuccess] = useState(false);
+
     useEffect(() => {
       if (user) {
         setUserName(user.displayName);
         setUserPhotoUrl(user.photoURL);
       }
     }, [user]);
-    useEffect(() => {
-      if (isSuccess) {
-        const timer = setTimeout(() => {
-          setIsSuccess(false);
-          navigate('/profile');
-        }, 3000);
-      }
 
-      // return () => clearTimeout(timer);
-    }, [isSuccess]);
-
-    console.log(isSuccess);
-
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
       e.preventDefault();
       const name = e.target.name.value;
       const photo = e.target.photo.value;
       // console.log(name, photo);
-      updateUserProfile(name, photo)
+      await updateUserProfile(name, photo)
         .then(() => {
-          setIsSuccess(true);
+          toast.success('Profile Update Successfull');
         })
         .catch(error => {
-          console.log(error.message);
+          toast.error(error.message);
+          return;
         });
+      await auth.currentUser.reload();
+      setUser({ ...auth.currentUser });
     };
     return (
       <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border-t-4 border-[#264653]">
         <h2 className="text-3xl font-bold text-[#264653] mb-6">
           Update Your Profile
         </h2>
-        {isSuccess && (
-          <div className="alert bg-green-100 border-green-400 text-green-700 mb-6 flex items-center shadow-md">
-            <CheckCircle size={20} />
-            <span>Profile successfully updated!</span>
-          </div>
-        )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="form-control">
@@ -185,7 +175,7 @@ const Profile = () => {
                 </button>
 
                 <button
-                  onClick={() => alert('Logging out...')}
+                  onClick={handleLogOut}
                   className="flex items-center w-full p-3 rounded-lg font-semibold text-red-500 hover:bg-red-50 transition duration-200 mt-4 border-t pt-4"
                 >
                   <LogOut size={20} className="mr-3" />

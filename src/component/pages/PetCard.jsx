@@ -1,8 +1,18 @@
 import { Star } from 'lucide-react';
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Navigate, NavLink, useLocation, useNavigate } from 'react-router';
 
 const PetCard = ({ service, index }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleViewBtn = serviceId => {
+    console.log('clicked');
+    navigate(`/services-details/${serviceId}`, {
+      state: { from: location },
+    });
+  };
+
   return (
     <div>
       <div
@@ -33,12 +43,12 @@ const PetCard = ({ service, index }) => {
             </div>
           </div>
           <div className="card-actions justify-end">
-            <NavLink
-              to={`/services-details/${service.serviceId}`}
+            <button
+              onClick={() => handleViewBtn(service.serviceId)}
               className="btn bg-[#F4A261] hover:bg-[#E76F51] text-white font-semibold border-none shadow-md transition duration-300 w-full"
             >
               View Details
-            </NavLink>
+            </button>
           </div>
         </div>
       </div>

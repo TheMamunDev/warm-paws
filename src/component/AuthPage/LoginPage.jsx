@@ -4,17 +4,13 @@ import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 
 const LoginPage = () => {
-  const { user, login, loading } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
   console.log(user);
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-  useEffect(() => {
-    if (!loading && user) {
-      navigate('/');
-    }
-  }, [user, loading, navigate]);
+
   const handleLogin = e => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -22,9 +18,8 @@ const LoginPage = () => {
     // console.log(email, password);
     login(email, password)
       .then(result => {
-        navigate(from);
+        navigate(from, { replace: true });
         console.log(result.user);
-        return;
       })
       .catch(error => {
         console.log(error.message);
@@ -34,6 +29,7 @@ const LoginPage = () => {
     e.preventDefault();
     setShowPass(!showPass);
   };
+  console.log(location);
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="lg:col-span-3 flex items-center justify-center p-8 sm:p-12 bg-[#FAF9F6]">
@@ -51,7 +47,7 @@ const LoginPage = () => {
               Sign in to manage your pet's winter care appointments.
             </p>
             <div className="form-control">
-              <label className="input input-bordered flex items-center gap-3 bg-gray-100 border-gray-300 transition-shadow duration-300 focus-within:ring-2 focus-within:ring-[#F4A261]">
+              <label className="input input-bordered w-full flex items-center gap-3 bg-gray-100 border-gray-300 transition-shadow duration-300 focus-within:ring-2 focus-within:ring-[#F4A261]">
                 <Mail size={18} className="text-gray-500" />
                 <input
                   type="email"
@@ -63,7 +59,7 @@ const LoginPage = () => {
               </label>
             </div>
             <div className="form-control relative">
-              <label className="input validator">
+              <label className="input validator w-full">
                 <Lock size={18} className="text-gray-500" />
                 <input
                   type={showPass ? 'text' : 'password'}

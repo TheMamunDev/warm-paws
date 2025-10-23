@@ -8,6 +8,7 @@ import ServicesDetails from '../component/pages/ServicesDetails';
 import LoginPage from '../component/AuthPage/LoginPAge';
 import RegisterPage from '../component/AuthPage/RegisterPage';
 import Profile from '../component/pages/Profile';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
 
 export const router = createBrowserRouter([
   {
@@ -41,7 +42,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'services-details/:id',
-        Component: ServicesDetails,
+        element: (
+          <PrivateRoute>
+            <ServicesDetails></ServicesDetails>
+          </PrivateRoute>
+        ),
         loader: () => fetch('../petData.json'),
         HydrateFallback: Spinner,
       },
@@ -55,7 +60,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'profile',
-        Component: Profile,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },
