@@ -66,9 +66,6 @@ const LoginPage = () => {
                   name="password"
                   required
                   placeholder="Password"
-                  minlength="6"
-                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                  title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
                 />
                 <button onClick={showPassHandle}>
                   {showPass ? <Eye /> : <EyeOff />}
