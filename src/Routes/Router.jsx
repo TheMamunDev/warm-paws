@@ -7,6 +7,7 @@ import Spinner from '../component/Spinner';
 import ServicesDetails from '../component/pages/ServicesDetails';
 import LoginPage from '../component/AuthPage/LoginPAge';
 import RegisterPage from '../component/AuthPage/RegisterPage';
+import Profile from '../component/pages/Profile';
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: 'register',
         Component: RegisterPage,
+      },
+      {
+        path: 'profile',
+        Component: Profile,
       },
     ],
   },

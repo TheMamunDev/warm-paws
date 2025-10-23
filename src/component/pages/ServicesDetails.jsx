@@ -28,8 +28,8 @@ const ServicesDetails = () => {
         `Booking confirmed for ${service.serviceName} for ${formData.name}!`,
         {
           style: {
-            background: '#264653', // Dark Teal
-            color: '#F4A261', // Deep Peach
+            background: '#264653',
+            color: '#F4A261', 
             fontWeight: 'bold',
           },
           icon: '🐾',
@@ -82,18 +82,28 @@ const ServicesDetails = () => {
           <h1 className="text-4xl font-extrabold text-[#264653] mb-3">
             {service.serviceName}
           </h1>
-
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="badge badge-lg bg-[#264653] text-white font-medium border-none">
-              {service.category}
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center space-x-3 ">
+              <div className="badge badge-lg bg-[#264653] text-white font-medium border-none">
+                {service.category}
+              </div>
+              <div className="flex items-center text-[#F4A261] font-semibold">
+                <Star
+                  size={20}
+                  fill="#F4A261"
+                  strokeWidth={0}
+                  className="mr-1"
+                />
+                <span className="text-lg">
+                  {service.rating} ({service.provider} customers)
+                </span>
+              </div>
             </div>
-            <div className="flex items-center text-[#F4A261] font-semibold">
-              <Star size={20} fill="#F4A261" strokeWidth={0} className="mr-1" />
-              <span className="text-lg">
-                {service.rating} ({service.provider} customers)
-              </span>
+            <div className="flex items-center text-[#264653] font-extrabold">
+              <span className="text-xl"> $ ({service.price} )</span>
             </div>
           </div>
+
           <h2 className="text-2xl font-bold text-[#264653] mb-3 border-b pb-2">
             About This Service
           </h2>

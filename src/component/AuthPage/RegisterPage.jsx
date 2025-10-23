@@ -11,10 +11,12 @@ import {
 } from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../../firebase/firebase.init';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-  const { signUp, user, loading } = useContext(AuthContext);
+  const { signUp, user, loading, updateUserProfile } = useContext(AuthContext);
   useEffect(() => {
     if (!loading && user) {
       navigate('/');
@@ -45,11 +47,19 @@ const RegisterPage = () => {
       return;
     }
     signUp(email, password)
-      .then(result => console.log(result.user))
+      .then(() => {
+        updateUserProfile()
+          .then(() => {
+            console.log('user created and updated');
+          })
+          .catch(error => {
+            console.log(error.message);
+          });
+      })
       .catch(error => {
         console.log(error.message);
       });
-    console.log('Registration submitted');
+    // console.log('Registration submitted');
   };
   const showPassHandle = e => {
     e.preventDefault();

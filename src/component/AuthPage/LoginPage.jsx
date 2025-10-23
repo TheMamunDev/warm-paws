@@ -1,15 +1,34 @@
-import React, { use, useContext, useState } from 'react';
+import React, { use, useContext, useEffect, useState } from 'react';
 import { Mail, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
-import { NavLink } from 'react-router';
+import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 
 const LoginPage = () => {
-  const { name } = useContext(AuthContext);
-  console.log(name);
+  const { user, login, loading } = useContext(AuthContext);
+  console.log(user);
+  const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  useEffect(() => {
+    if (!loading && user) {
+      navigate('/');
+    }
+  }, [user, loading, navigate]);
   const handleLogin = e => {
     e.preventDefault();
-    console.log('Login submitted');
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    // console.log(email, password);
+    login(email, password)
+      .then(result => {
+        navigate(from);
+        console.log(result.user);
+        return;
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
   };
   const showPassHandle = e => {
     e.preventDefault();
@@ -36,6 +55,7 @@ const LoginPage = () => {
                 <Mail size={18} className="text-gray-500" />
                 <input
                   type="email"
+                  name="email"
                   required
                   className="grow text-[#264653] focus:outline-none"
                   placeholder="Email Address"
