@@ -129,7 +129,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9F6] py-12">
+    <div className="min-h-screen bg-[#FAF9F6] pt-12">
       {loading ? (
         <Spinner></Spinner>
       ) : (
@@ -139,7 +139,7 @@ const Profile = () => {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <aside className="lg:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit sticky top-20">
+            <aside className="row-start-2 lg:row-start-auto lg:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit lg:sticky top-20">
               <div className="flex flex-col items-center border-b pb-4 mb-4">
                 <img
                   src={user?.photoURL}

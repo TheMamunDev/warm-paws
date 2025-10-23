@@ -5,12 +5,12 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyDoQuTZxkuvb9fVmWaAoz8f41FyTCtOryc',
-  authDomain: 'warmpaws-f1b79.firebaseapp.com',
-  projectId: 'warmpaws-f1b79',
-  storageBucket: 'warmpaws-f1b79.firebasestorage.app',
-  messagingSenderId: '502035091359',
-  appId: '1:502035091359:web:44848ba432245392cc37aa',
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

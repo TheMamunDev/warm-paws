@@ -15,7 +15,7 @@ const ServicesDetails = () => {
   const { id } = useParams();
   // console.log(id);
   const allServicesData = useLoaderData();
-  const service = allServicesData.find(s => s.serviceId === parseInt(id));
+  const service = allServicesData.find(s => s.serviceId === Number(id));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '' });
 
@@ -29,7 +29,7 @@ const ServicesDetails = () => {
         {
           style: {
             background: '#264653',
-            color: '#F4A261', 
+            color: '#F4A261',
             fontWeight: 'bold',
           },
           icon: '🐾',

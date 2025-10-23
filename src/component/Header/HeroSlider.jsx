@@ -6,12 +6,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { NavLink, useLoaderData } from 'react-router';
 
-
 const HeroSlider = () => {
   const { sliders } = useLoaderData();
   const sliderData = sliders;
   return (
-    <div className="w-full relative h-[600px] md:h-[700px] lg:h-[80vh] overflow-hidden">
+    <div className="w-full relative h-[500px] md:h-[600px] lg:h-[70vh] overflow-hidden">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}

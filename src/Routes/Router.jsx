@@ -10,11 +10,13 @@ import RegisterPage from '../component/AuthPage/RegisterPage';
 import Profile from '../component/pages/Profile';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ForgotPasswordPage from '../component/AuthPage/ForgetPassword';
+import NotFound from '../component/NotFound';
 
 export const router = createBrowserRouter([
   {
     path: '',
     Component: Root,
+    errorElement: <NotFound></NotFound>,
     children: [
       {
         index: true,
