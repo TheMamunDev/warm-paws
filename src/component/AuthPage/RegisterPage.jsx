@@ -11,12 +11,12 @@ import {
 } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
-import { updateProfile } from 'firebase/auth';
-import { auth } from '../../firebase/firebase.init';
 import { handleFirebaseError } from '../../utilis/errorHandle';
 import { toast } from 'react-toastify';
+import usePageTitle from '../Hooks/useTitle';
 
 const RegisterPage = () => {
+  usePageTitle('Registration -WarmPaws');
   const navigate = useNavigate();
   const { signUp, user, loading, updateUserProfile, handleGoogleLogin } =
     useContext(AuthContext);
@@ -66,16 +66,19 @@ const RegisterPage = () => {
     }
     signUp(email, password)
       .then(() => {
-        updateUserProfile()
+        updateUserProfile(name, photo)
           .then(() => {
-            console.log('user created and updated');
+            navigate(from, { replace: true });
+            toast.success('Account Created...');
+            // console.log('user created and updated');
           })
           .catch(error => {
-            console.log(error.message);
+            toast.error(error.message);
+            // console.log(error.message);
           });
       })
       .catch(error => {
-        console.log(error.message);
+        toast.error(error.message);
       });
     // console.log('Registration submitted');
   };

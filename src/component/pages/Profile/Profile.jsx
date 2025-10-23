@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { use, useState } from 'react';
 import { User, LogOut, Lock } from 'lucide-react';
 import { AuthContext } from '../../../context/AuthContext';
 import Spinner from '../../Spinner';
@@ -26,7 +26,7 @@ const Profile = () => {
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <aside className="row-start-2 lg:row-start-auto lg:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit lg:sticky top-20">
+            <aside className="row-start-2 lg:row-start-auto lg:col-span-1 bg-white p-6 rounded-xl shadow-lg h-fit lg:sticky top-20 border-b-4 md:border-0 border-[#F4A261]">
               <div className="flex flex-col items-center border-b pb-4 mb-4">
                 <img
                   src={user?.photoURL}
