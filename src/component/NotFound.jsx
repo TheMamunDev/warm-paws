@@ -21,7 +21,7 @@ const NotFound = () => {
         <h1 className="text-7xl font-extrabold text-[#264653] mb-4">404</h1>
 
         <h2 className="text-3xl font-bold text-[#F4A261] mb-4">
-          Lost in the Snowdrift!
+          Page Not Found !
         </h2>
 
         <p className="text-lg text-gray-600 mb-8">

@@ -1,27 +1,29 @@
 import React, { useState, useMemo, useEffect } from 'react';
 
-import { Search, Sliders, Star } from 'lucide-react';
+import { Search, Sliders } from 'lucide-react';
 import { useLoaderData } from 'react-router';
 import PetCard from './PetCard';
 import Skeleton from '../Skeleton';
+import usePageTitle from '../Hooks/useTitle';
 
 const Services = () => {
+  usePageTitle('Services - WarmPaws');
   const pets = useLoaderData();
   const allServicesData = pets;
   const categories = [...new Set(allServicesData.map(item => item.category))];
-  // console.log(pets);
+  // console.log(categories);
   const PriceData = allServicesData.map(el => el.price);
   const PriceRange = Math.max(...PriceData);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [maxPrice, setMaxPrice] = useState(PriceRange);
-  // console.log(loading);
+
   useEffect(() => {
     setLoading(true);
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 400);
+    }, 500);
     return () => clearTimeout(timeout);
   }, [searchTerm, selectedCategory, maxPrice]);
 

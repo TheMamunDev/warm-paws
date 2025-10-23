@@ -1,13 +1,13 @@
 import { Star } from 'lucide-react';
 import React from 'react';
-import { Navigate, NavLink, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 const PetCard = ({ service, index }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const handleViewBtn = serviceId => {
-    console.log('clicked');
+    // console.log('clicked');
     navigate(`/services-details/${serviceId}`, {
       state: { from: location },
     });
@@ -16,12 +16,12 @@ const PetCard = ({ service, index }) => {
   return (
     <div>
       <div
-        className="card bg-white h-full shadow-xl rounded-xl overflow-hidden transform hover:shadow-2xl hover:scale-[1.02] transition duration-500 border border-gray-100"
+        className=" bg-white h-full shadow-xl rounded-xl overflow-hidden transform hover:shadow-2xl hover:scale-[1.02] transition duration-500 border border-gray-100"
         data-aos="fade-up"
         data-aos-delay={index * 150}
         data-aos-duration="1000"
       >
-        <figure className="h-56 overflow-hidden">
+        <figure className="aspect-4/3 overflow-hidden">
           <img
             src={service.image}
             alt={service.serviceName}
@@ -32,7 +32,7 @@ const PetCard = ({ service, index }) => {
           <h3 className="card-title text-2xl font-bold text-secondary hover:text-primary transition-colors duration-300">
             {service.serviceName}
           </h3>
-          <p className="text-sm text-gray-500 mb-3">{service.providerName}</p>
+          <h3 className="text-sm text-gray-500 mb-5">{service.providerName}</h3>
           <div className="flex justify-between items-center mb-4 border-t border-b border-accent py-2">
             <div className="flex items-center text-[#F4A261] font-semibold">
               <Star size={16} fill="#F4A261" strokeWidth={0} className="mr-1" />

@@ -12,9 +12,7 @@ const WinterCareTips = () => {
           data-aos="fade-down"
           data-aos-duration="800"
         >
-          <h2 className="inline-block text-4xl font-extrabold text-secondary mb-3 pb-2 border-b-3 border-[#F4A261] hover:border-[#E76F51] transition-colors duration-200">
-            Essential Winter Care Tips 💡
-          </h2>
+          <h2 className="heading-h2">Essential Winter Care Tips</h2>
           <p className="text-lg text-gray-500 max-w-3xl mx-auto">
             Quick, actionable advice from our experts to ensure your pet's
             winter safety and comfort.
@@ -24,7 +22,7 @@ const WinterCareTips = () => {
           {data.map((tip, index) => (
             <div
               key={tip.id}
-              className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#F4A261] transform hover:shadow-xl transition duration-300 h-full flex flex-col justify-start"
+              className="card-body border-t-4"
               data-aos="fade-up"
               data-aos-delay={index * 150}
               data-aos-duration="1000"

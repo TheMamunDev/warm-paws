@@ -1,13 +1,14 @@
 import React, { use, useEffect, useState } from 'react';
-import { Navigate, NavLink, useNavigate } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import MyLink from '../MyLink';
 import { AuthContext } from '../../context/AuthContext';
-import Spinner from '../Spinner';
+import { toast } from 'react-toastify';
+import { TextAlignJustify } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logOut, setLoading, loading } = use(AuthContext);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  console.log(user);
+  // console.log(user);
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
@@ -21,10 +22,10 @@ const Navbar = () => {
     setLoading(true);
     logOut()
       .then(() => {
-        console.log('user logged out');
+        toast.success('Logged Out Success');
       })
       .catch(error => {
-        console.log(error.message);
+        toast.error(error.message);
       });
   };
   const navLinksContent = (
@@ -40,20 +41,7 @@ const Navbar = () => {
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-secondary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
+            <TextAlignJustify />
           </div>
           <ul
             tabIndex={0}
@@ -91,7 +79,10 @@ const Navbar = () => {
                 >
                   <img
                     alt={`${user?.displayName || 'User'} avatar`}
-                    src={user?.photoURL || 'https://via.placeholder.com/40'}
+                    src={
+                      user?.photoURL ||
+                      'https://img.icons8.com/color/300/user-male-circle--v1.png'
+                    }
                   />
                 </div>
 
@@ -101,7 +92,7 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleLogOut}
-                className="btn bg-[#F4A261] hover:bg-[#E76F51] text-white font-bold border-none transition duration-300"
+                className="btn bg-[#F4A261] hover:bg-[#E76F51] text-white font-bold border-none transition duration-300 "
               >
                 Logout
               </button>

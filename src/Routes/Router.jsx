@@ -7,7 +7,7 @@ import Spinner from '../component/Spinner';
 import ServicesDetails from '../component/pages/ServicesDetails';
 import LoginPage from '../component/AuthPage/LoginPAge';
 import RegisterPage from '../component/AuthPage/RegisterPage';
-import Profile from '../component/pages/Profile';
+import Profile from '../component/pages/Profile/Profile';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import ForgotPasswordPage from '../component/AuthPage/ForgetPassword';
 import NotFound from '../component/NotFound';
@@ -23,17 +23,20 @@ export const router = createBrowserRouter([
         path: '',
         Component: Home,
         loader: async () => {
-          const [petResult, sliderResult] = await Promise.all([
-            fetch('../petData.json'),
-            fetch('../sliderData.json'),
-          ]);
+          const [petResult, sliderResult, testimonialsResult] =
+            await Promise.all([
+              fetch('../petData.json'),
+              fetch('../sliderData.json'),
+              fetch('../testimonialsData.json'),
+            ]);
 
-          const [pets, sliders] = await Promise.all([
+          const [pets, sliders, testimonials] = await Promise.all([
             petResult.json(),
             sliderResult.json(),
+            testimonialsResult.json(),
           ]);
 
-          return { pets, sliders };
+          return { pets, sliders, testimonials };
         },
         HydrateFallback: Spinner,
       },

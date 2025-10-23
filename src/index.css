@@ -20,10 +20,10 @@
 }
 :root {
   /* Main Colors */
-  --color-primary: #40916c; /* Evergreen (CTAs, Highlight) */
-  --color-secondary: #2d3a3a; /* Dark Pine / Charcoal (Text, Footer) */
-  --color-accent: #d8f3dc; /* Light Mint (Background Accent) */
-  --color-background: #f7f7f7; /* Near-White / Light Snow */
+  --color-primary: #40916c; 
+  --color-secondary: #2d3a3a; 
+  --color-accent: #d8f3dc; 
+  --color-background: #f7f7f7; 
 }
 
 body {
@@ -38,4 +38,16 @@ body {
 
 .baseNavClass {
   @apply text-secondary font-medium hover:text-[#E76F51] transition duration-300;
+}
+
+.heading-h2 {
+  @apply inline-block text-4xl font-extrabold text-secondary mb-3 pb-2 border-b-3 border-[#F4A261] hover:border-[#E76F51] transition-colors duration-200;
+}
+
+.card-body {
+  @apply bg-white p-6 rounded-xl shadow-lg border-[#F4A261] transform hover:shadow-xl transition duration-300 h-full flex flex-col justify-start;
+}
+
+.btn-primaryy {
+  @apply btn bg-[#F4A261] hover:bg-[#E76F51] text-white font-bold border-none shadow-md mt-4;
 }

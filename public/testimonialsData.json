@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "quote": "The Winter Coat Fitting service was perfect! My husky is warm, protected, and looks stylish on our snowy walks. WarmPaws truly understands cold-weather care.",
+    "name": "Jessica L.",
+    "pet": "Sasha (Siberian Husky)",
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "quote": "I can't recommend the Paw Treatment enough. After just one session, my senior dog's cracked paws healed. Trustworthy experts and cozy results!",
+    "name": "Mark T.",
+    "pet": "Buster (Golden Retriever)",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "quote": "Booking was easy, and the Snow Safety Training gave me peace of mind. The whole experience feels professional and genuinely focused on pet comfort.",
+    "name": "Chloe D.",
+    "pet": "Milo (Beagle)",
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "quote": "Excellent communication and care. They treated my little terrier like royalty, even offering extra advice on snow boots. Highly recommend! Excellent communication and care. They treated my little terrier like royalty, even offering extra advice on snow boots. Highly recommend!",
+    "name": "Sarah P.",
+    "pet": "Pippin (Terrier)",
+    "rating": 5
+  }
+]

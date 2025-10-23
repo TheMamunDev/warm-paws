@@ -34,11 +34,7 @@ const HeroSlider = () => {
                   data-aos-duration="1200"
                 >
                   <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 leading-tight">
-                    The{' '}
-                    <span className="text-[#F4A261] drop-shadow-lg">
-                      Warmest Winter
-                    </span>{' '}
-                    for Your Best Friend.
+                    {slide.title}
                   </h1>
                   <p className="text-lg md:text-xl font-light mb-8 text-gray-100">
                     {slide.subtitle}
