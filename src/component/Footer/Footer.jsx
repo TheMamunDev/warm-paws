@@ -16,13 +16,13 @@ const Footer = () => {
     { name: 'Accessibility', path: '/accessibility' },
   ];
   return (
-    <footer className="p-10 bg-[#264653] text-white mt-20 max-w-11/12 mx-auto">
-      <div className="footer  grid grid-cols-2 md:grid-cols-4 gap-8">
+    <footer className="max-w-11/12 mx-auto p-10 bg-[#264653] text-white mt-20 ">
+      <div className="footer grid grid-cols-2 md:grid-cols-4 gap-8">
         <aside className="col-span-2 md:col-span-1">
           <h4 className="text-3xl font-extrabold text-[#F4A261] mb-3">
             WarmPaws
           </h4>
-          <p className="text-sm font-light leading-relaxed max-w-xs text-gray-300">
+          <p className="text-sm font-light leading-relaxed text-gray-300">
             Your cozy winter companion platform, dedicated to keeping your pets
             warm, safe, and healthy through the cold season.
           </p>
