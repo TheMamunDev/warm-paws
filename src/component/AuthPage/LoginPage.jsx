@@ -8,7 +8,7 @@ import usePageTitle from '../Hooks/useTitle';
 import Spinner from '../Spinner';
 
 const LoginPage = () => {
-  usePageTitle('Login - WarmPaws');
+  usePageTitle('Login | WarmPaws');
   const { user, login, handleGoogleLogin, loading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
@@ -55,7 +55,7 @@ const LoginPage = () => {
     e.preventDefault();
     setShowPass(!showPass);
   };
-  console.log(location);
+  // console.log(location);
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="lg:col-span-3 flex items-center justify-center p-8 sm:p-12 bg-[#FAF9F6]">

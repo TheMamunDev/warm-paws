@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import usePageTitle from '../Hooks/useTitle';
 
 const ForgotPasswordPage = () => {
-  usePageTitle('Forgot Password - WarmPaws');
+  usePageTitle('Forgot Password | WarmPaws');
   const { forgotPasswordFn } = use(AuthContext);
   const [searchParams] = useSearchParams();
   const initialEmail = searchParams.get('email') || '';
@@ -21,6 +21,7 @@ const ForgotPasswordPage = () => {
     setTimeout(() => {
       forgotPasswordFn(email)
         .then(() => {
+          setEmail('');
           toast.success('Passowrd Reset Email Send . Check Your Mail');
           window.open('https://mail.google.com/', '_blank');
           setIsSubmitting(false);
