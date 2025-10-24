@@ -50,12 +50,11 @@ const Services = () => {
         <h1 className="text-5xl font-extrabold text-[#F4A261]">
           Our Winter Service Catalog
         </h1>
-        <p className="text-lg text-gray-300 mt-2">
+        <p className="text-lg text-gray-300 mt-2 ">
           Find the perfect cozy care service for your pet this season.
         </p>
       </header>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-11/12 mx-auto py-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <aside className="lg:col-span-1 p-6 bg-white rounded-xl shadow-lg h-fit lg:sticky top-20">
             <div className="flex justify-between items-center mb-5">

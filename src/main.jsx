@@ -7,7 +7,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import AuthProvider from './context/AuthProvider.jsx';
 AOS.init({
-  duration: 1000,
+  duration: 500,
   once: true,
 });
 

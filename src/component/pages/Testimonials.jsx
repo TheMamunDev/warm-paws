@@ -11,7 +11,7 @@ const Testimonials = () => {
   return (
     <section className="bg-[#FAF9F6] py-20">
       {' '}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-11/12 mx-auto ">
         <div
           className="text-center mb-12"
           data-aos="fade-down"
@@ -24,7 +24,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative h-full">
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={30}
@@ -44,7 +44,7 @@ const Testimonials = () => {
           >
             {testimonials.map(testimonial => (
               <SwiperSlide key={testimonial.id}>
-                <div className="card-body border-b-4">
+                <div className="card-body border-b-4 flex flex-col h-full ">
                   <div className="flex justify-between items-center mb-4">
                     <Quote size={40} className="text-[#264653] opacity-20" />
                     <div className="flex items-center">

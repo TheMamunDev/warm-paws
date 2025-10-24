@@ -1,14 +1,15 @@
 import React from 'react';
 import HeroSlider from '../Header/HeroSlider';
 import PopularServices from '../pages/PopularServices';
-
 import WinterCareTips from '../pages/WinterCareTips';
 import ExpertsVets from '../pages/ExpertsVets';
 import Testimonials from '../pages/Testimonials';
+import usePageTitle from '../Hooks/useTitle';
 
 const Home = () => {
+  usePageTitle('Home | WarmPaws');
   return (
-    <div className="container mx-auto">
+    <div className="max-w-11/12 mx-auto">
       <HeroSlider></HeroSlider>
       <PopularServices></PopularServices>
       <WinterCareTips></WinterCareTips>

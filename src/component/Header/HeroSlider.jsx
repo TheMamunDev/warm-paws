@@ -4,11 +4,25 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { NavLink, useLoaderData } from 'react-router';
+import { useLoaderData } from 'react-router';
+import { toast } from 'react-toastify';
 
 const HeroSlider = () => {
   const { sliders } = useLoaderData();
   const sliderData = sliders;
+
+  const bookNowBtn = id => {
+    const data = sliderData.find(item => item.id == id);
+    // console.log(data);
+    toast.success(`Booking Under Proccessing for ${data.title} !`, {
+      style: {
+        background: 'accent',
+        color: 'secondery',
+        fontWeight: 'bold',
+      },
+      icon: '🐾',
+    });
+  };
   return (
     <div className="w-full relative h-[500px] md:h-[600px] lg:h-[70vh] overflow-hidden">
       <Swiper
@@ -40,12 +54,12 @@ const HeroSlider = () => {
                     {slide.subtitle}
                   </p>
 
-                  <NavLink
-                    to={'/'}
+                  <button
+                    onClick={() => bookNowBtn(slide.id)}
                     className="btn btn-lg bg-[#F4A261] hover:bg-[#E76F51] text-white text-sm md:text-2xl font-bold py-3 px-3 md:px-10 rounded-full border-none shadow-xl transition duration-300 transform hover:scale-[1.03]"
                   >
                     Book Now
-                  </NavLink>
+                  </button>
                 </div>
               </div>
             </div>

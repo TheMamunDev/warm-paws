@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-import {
-  DollarSign,
-  Clock,
-  User,
-  Calendar,
-  AlertTriangle,
-  Star,
-} from 'lucide-react';
+import { AlertTriangle, Star } from 'lucide-react';
 import { NavLink, useLoaderData, useParams } from 'react-router';
 import { toast } from 'react-toastify';
+import usePageTitle from '../Hooks/useTitle';
 
 const ServicesDetails = () => {
   const { id } = useParams();
@@ -18,7 +12,7 @@ const ServicesDetails = () => {
   const service = allServicesData.find(s => s.serviceId === Number(id));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '' });
-
+  usePageTitle(`${service.serviceName} | WarmPaws`);
   const handleBookingSubmit = e => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -59,7 +53,7 @@ const ServicesDetails = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 bg-[#FAF9F6]">
+    <div className="max-w-11/12 mx-auto py-10 bg-[#FAF9F6]">
       <div className="mb-6 text-sm text-gray-500">
         <NavLink
           to="/services"
@@ -71,7 +65,7 @@ const ServicesDetails = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-white p-8 rounded-xl shadow-2xl">
         <div className="lg:col-span-2">
-          <figure className="h-96 overflow-hidden rounded-xl shadow-lg mb-8">
+          <figure className="aspect-3/2 overflow-hidden rounded-xl shadow-lg mb-8">
             <img
               src={service.image}
               alt={service.serviceName}

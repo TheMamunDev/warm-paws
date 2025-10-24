@@ -5,9 +5,6 @@
 @import 'swiper/css';
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
-@plugin "daisyui" {
-  themes: light --default;
-}
 
 @plugin "daisyui/theme" {
   name: 'light';
@@ -19,11 +16,10 @@
   --color-success: #36d399;
 }
 :root {
-  /* Main Colors */
-  --color-primary: #40916c; 
-  --color-secondary: #2d3a3a; 
-  --color-accent: #d8f3dc; 
-  --color-background: #f7f7f7; 
+  --color-primary: #40916c;
+  --color-secondary: #2d3a3a;
+  --color-accent: #d8f3dc;
+  --color-background: #f7f7f7;
 }
 
 body {
@@ -37,7 +33,7 @@ body {
 }
 
 .baseNavClass {
-  @apply text-secondary font-medium hover:text-[#E76F51] transition duration-300;
+  @apply text-secondary text-sm font-medium hover:text-[#E76F51] transition duration-300;
 }
 
 .heading-h2 {

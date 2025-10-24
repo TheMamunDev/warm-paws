@@ -9,7 +9,7 @@ const Root = () => {
   const navigation = useNavigation();
   console.log(navigation.state);
   return (
-    <div className="max-w-[1280px] mx-auto">
+    <div className="max-w-[1920px] mx-auto">
       <Navbar />
       {navigation.state === 'loading' ? <Spinner /> : <Outlet />}
       <Footer />

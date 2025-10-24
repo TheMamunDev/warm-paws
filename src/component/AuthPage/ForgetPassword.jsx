@@ -10,14 +10,13 @@ const ForgotPasswordPage = () => {
   const { forgotPasswordFn } = use(AuthContext);
   const [searchParams] = useSearchParams();
   const initialEmail = searchParams.get('email') || '';
-
   const [email, setEmail] = useState(initialEmail);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
     setIsSubmitting(true);
-    console.log(`Sending password reset link to: ${email}`);
+    // console.log(`Sending password reset link to: ${email}`);
     setTimeout(() => {
       forgotPasswordFn(email)
         .then(() => {

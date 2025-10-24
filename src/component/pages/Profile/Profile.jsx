@@ -20,7 +20,7 @@ const Profile = () => {
       {loading ? (
         <Spinner></Spinner>
       ) : (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-11/12 mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-2xl md:text-4xl font-extrabold text-[#264653] mb-8">
             {user?.displayName || 'user'}'s Profile
           </h1>

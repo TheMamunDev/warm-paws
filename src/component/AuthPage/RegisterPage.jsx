@@ -88,8 +88,8 @@ const RegisterPage = () => {
   };
   return (
     <div className="min-h-screen ">
-      <div className="lg:col-span-3 flex items-center justify-center p-8 sm:p-12 bg-[#FAF9F6]">
-        <div className="w-full max-w-lg bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
+      <div className="lg:col-span-3 flex items-center justify-center p-2 sm:p-12 bg-[#FAF9F6]">
+        <div className="w-full max-w-11/12 bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
           <form
             onSubmit={handleRegister}
             className="space-y-6"
@@ -157,7 +157,7 @@ const RegisterPage = () => {
               type="submit"
               className="btn btn-lg bg-[#264653] hover:bg-[#40687d] text-white font-bold border-none shadow-lg w-full mt-8 transform transition hover:scale-[1.01]"
             >
-              <UserPlus size={20} /> Create WarmPaws Account
+              <UserPlus size={20} /> Create Account
             </button>
             <div className="flex items-center justify-center gap-2">
               <div className="h-px w-16 bg-[#F4A261]"></div>
