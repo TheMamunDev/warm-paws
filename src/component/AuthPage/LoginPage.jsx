@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Mail, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { handleFirebaseError } from '../../utilis/errorHandle';
 import { toast } from 'react-toastify';
 import usePageTitle from '../Hooks/useTitle';
-import Spinner from '../Spinner';
 
 const LoginPage = () => {
   usePageTitle('Login | WarmPaws');
@@ -15,21 +14,29 @@ const LoginPage = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   const [email, setEmail] = useState('');
-  if (loading) {
-    return <Spinner></Spinner>;
-  }
-  if (user) {
-    return navigate(from, { replace: true });
-  }
+
+  useEffect(() => {
+    if (!loading && user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, loading, navigate]);
+
+  // if (loading) {
+  //   return <Spinner></Spinner>;
+  // }
+  // if (user) {
+  //   return navigate(from, { replace: true });
+  // }
   const handleLogin = e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log(email, password);
     login(email, password)
-      .then(result => {
+      .then(() => {
+        toast.success('Login Successfull..');
         navigate(from, { replace: true });
-        console.log(result.user);
+        // console.log(result.user);
       })
       .catch(error => {
         handleFirebaseError(error);
@@ -54,11 +61,10 @@ const LoginPage = () => {
     e.preventDefault();
     setShowPass(!showPass);
   };
-  // console.log(location);
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen">
       <div className="lg:col-span-3 flex items-center justify-center p-2 sm:p-12 bg-[#FAF9F6]">
-        <div className="max-w-11/12 mx-auto bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
+        <div className=" max-w-11/12 bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
           <form
             onSubmit={handleLogin}
             className="space-y-6"
