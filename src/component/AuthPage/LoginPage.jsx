@@ -19,8 +19,7 @@ const LoginPage = () => {
     return <Spinner></Spinner>;
   }
   if (user) {
-    navigate(from, { replace: true });
-    return;
+    return navigate(from, { replace: true });
   }
   const handleLogin = e => {
     e.preventDefault();
@@ -59,7 +58,7 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
       <div className="lg:col-span-3 flex items-center justify-center p-2 sm:p-12 bg-[#FAF9F6]">
-        <div className="w-full max-w-11/12 bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
+        <div className="max-w-11/12 mx-auto bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
           <form
             onSubmit={handleLogin}
             className="space-y-6"

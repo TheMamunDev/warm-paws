@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Outlet, useNavigation } from 'react-router';
 import Navbar from '../component/header/Navbar';
 import Footer from '../component/Footer/Footer';
@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify';
 
 const Root = () => {
   const navigation = useNavigation();
-  console.log(navigation.state);
+  // console.log(navigation.state);
   return (
     <div className="max-w-[1920px] mx-auto">
       <Navbar />

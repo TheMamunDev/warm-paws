@@ -2,7 +2,7 @@ import React from 'react';
 
 const Spinner = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="max-w-11/12 mx-auto flex items-center justify-center min-h-screen">
       <span className="loading loading-ring  w-20 h-20 text-[#F4A261]"></span>
     </div>
   );
