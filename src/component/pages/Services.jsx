@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect } from 'react';
-
 import { Search, Sliders } from 'lucide-react';
 import { useLoaderData } from 'react-router';
 import PetCard from './PetCard';
@@ -12,12 +11,18 @@ const Services = () => {
   const allServicesData = pets;
   const categories = [...new Set(allServicesData.map(item => item.category))];
   // console.log(categories);
-  const PriceData = allServicesData.map(el => el.price);
-  const PriceRange = Math.max(...PriceData);
+  const priceData = allServicesData.map(el => el.price);
+  const priceRange = Math.max(...priceData);
   const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [maxPrice, setMaxPrice] = useState(PriceRange);
+  const [maxPrice, setMaxPrice] = useState(priceRange);
+
+  const handleClearBtn = () => {
+    setSearchTerm('');
+    setMaxPrice(priceRange);
+    setSelectedCategory('All');
+  };
 
   useEffect(() => {
     setLoading(true);
@@ -53,9 +58,18 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <aside className="lg:col-span-1 p-6 bg-white rounded-xl shadow-lg h-fit lg:sticky top-20">
-            <h2 className="text-2xl font-bold text-[#264653] mb-5 flex items-center">
-              <Sliders size={20} className="mr-2 text-[#F4A261]" /> Filters
-            </h2>
+            <div className="flex justify-between items-center mb-5">
+              <h2 className="text-2xl font-bold text-[#264653] flex items-center">
+                <Sliders size={20} className="mr-2 text-[#F4A261]" /> Filters
+              </h2>
+              <button
+                onClick={handleClearBtn}
+                className=" badge badge-lg font-medium cursor-pointer transition-colors duration-200 bg-gray-200 text-[#264653] hover:bg-gray-300 border-none"
+              >
+                Clear
+              </button>
+            </div>
+
             <div className="form-control mb-6">
               <label className="label">
                 <span className="label-text text-gray-600 font-semibold">
@@ -99,7 +113,7 @@ const Services = () => {
               <input
                 type="range"
                 min={0}
-                max={PriceRange}
+                max={priceRange}
                 value={maxPrice}
                 onChange={e => setMaxPrice(e.target.value)}
                 className="range range-xs"
@@ -121,7 +135,11 @@ const Services = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                 {filteredServices.length > 0 ? (
                   filteredServices.map((service, index) => (
-                    <PetCard key={service.id} service={service} index={index} />
+                    <PetCard
+                      key={service.serviceId}
+                      service={service}
+                      index={index}
+                    />
                   ))
                 ) : (
                   <div className="col-span-full text-center py-10 bg-white rounded-xl shadow-lg">
