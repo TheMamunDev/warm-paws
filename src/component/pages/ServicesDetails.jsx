@@ -73,10 +73,10 @@ const ServicesDetails = () => {
             />
           </figure>
 
-          <h1 className="text-4xl font-extrabold text-[#264653] mb-3">
+          <h1 className="text-2xl md:text-4xl font-extrabold text-[#264653] mb-3">
             {service.serviceName}
           </h1>
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div className="flex items-center space-x-3 ">
               <div className="badge badge-lg bg-[#264653] text-white font-medium border-none">
                 {service.category}

@@ -87,13 +87,13 @@ const RegisterPage = () => {
     setShowPass(!showPass);
   };
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen overflow-x-hidden">
       <div className="lg:col-span-3 flex items-center justify-center p-2 sm:p-12 bg-[#FAF9F6]">
         <div className=" max-w-11/12 bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
           <form
             onSubmit={handleRegister}
             className="space-y-6"
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-duration="1000"
           >
             <h2 className="text-3xl font-extrabold text-[#264653]">
