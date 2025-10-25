@@ -14,6 +14,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { handleFirebaseError } from '../../utilis/errorHandle';
 import { toast } from 'react-toastify';
 import usePageTitle from '../Hooks/useTitle';
+import Spinner from '../Spinner';
 
 const RegisterPage = () => {
   usePageTitle('Registration -WarmPaws');
@@ -24,11 +25,10 @@ const RegisterPage = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   useEffect(() => {
-    if (!loading && user) {
+    if (user) {
       navigate('/');
     }
   }, [user, loading, navigate]);
-
   const [errorPass, setErrorPass] = useState('');
   const [showPass, setShowPass] = useState(false);
   const validatePassword = password => {
@@ -40,6 +40,9 @@ const RegisterPage = () => {
       return 'Password must be at least 6 characters long.';
     return '';
   };
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
   const handleGoogleBtn = e => {
     e.preventDefault();
     handleGoogleLogin()
@@ -87,15 +90,10 @@ const RegisterPage = () => {
     setShowPass(!showPass);
   };
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden flex justify-center items-center">
       <div className="lg:col-span-3 flex items-center justify-center p-2 sm:p-12 bg-[#FAF9F6]">
         <div className=" max-w-11/12 bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
-          <form
-            onSubmit={handleRegister}
-            className="space-y-6"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
+          <form onSubmit={handleRegister} className="space-y-6">
             <h2 className="text-3xl font-extrabold text-[#264653]">
               Join the WarmPaws!
             </h2>

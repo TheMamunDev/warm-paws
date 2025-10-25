@@ -26,7 +26,7 @@ const HeroSlider = () => {
   };
 
   return (
-    <div className="w-full relative h-[250px] md:h-[600px] lg:h-[70vh] overflow-hidden">
+    <div className="w-full relative overflow-hidden">
       <div className="bg-[#264653] text-white py-3 shadow-lg z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center font-semibold text-sm sm:text-base flex items-center justify-center space-x-4">
@@ -60,7 +60,7 @@ const HeroSlider = () => {
         {sliderData.map(slide => (
           <SwiperSlide key={slide.id}>
             <div
-              className="relative w-full h-full bg-cover bg-center "
+              className="relative w-full bg-cover bg-center h-56 md:h-96 lg:h-[70vh]"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-[#264653]/60 flex items-center justify-center">

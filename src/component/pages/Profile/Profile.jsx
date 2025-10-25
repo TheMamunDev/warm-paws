@@ -5,14 +5,22 @@ import Spinner from '../../Spinner';
 import usePageTitle from '../../Hooks/useTitle';
 import AccountDetails from './AccountDetails';
 import { UpdateProfile } from './UpdateProfile';
+import { toast } from 'react-toastify';
 
 const Profile = () => {
   usePageTitle('Profile - WarmPaws');
-  const { user, loading, logOut } = use(AuthContext);
+  const { user, loading, logOut, setLoading } = use(AuthContext);
   const [activeSection, setActiveSection] = useState('details');
 
   const handleLogOut = () => {
-    logOut();
+    setLoading(true);
+    logOut()
+      .then(() => {
+        toast.success('Log Out Success');
+      })
+      .catch(error => {
+        toast.error(error.message);
+      });
   };
 
   return (

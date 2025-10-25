@@ -22,7 +22,7 @@ const Navbar = () => {
     setLoading(true);
     logOut()
       .then(() => {
-        toast.success('Logged Out Success');
+        toast.success('Log Out Success');
       })
       .catch(error => {
         toast.error(error.message);

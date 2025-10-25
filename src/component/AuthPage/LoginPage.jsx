@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Mail, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import { handleFirebaseError } from '../../utilis/errorHandle';
 import { toast } from 'react-toastify';
 import usePageTitle from '../Hooks/useTitle';
+import Spinner from '../Spinner';
 
 const LoginPage = () => {
   usePageTitle('Login | WarmPaws');
@@ -15,12 +16,16 @@ const LoginPage = () => {
   const from = location.state?.from?.pathname || '/';
   const [email, setEmail] = useState('');
 
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, navigate, from]);
+
   if (loading) {
     return <Spinner></Spinner>;
   }
-  if (user) {
-    return navigate(from, { replace: true });
-  }
+
   const handleLogin = e => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -43,7 +48,6 @@ const LoginPage = () => {
     handleGoogleLogin()
       .then(() => {
         navigate(from, { replace: true });
-        // console.log(result.user);
         toast.success('Successfully Logged in');
       })
       .catch(error => {
@@ -56,15 +60,10 @@ const LoginPage = () => {
     setShowPass(!showPass);
   };
   return (
-    <div className="min-h-screen overflow-x-hidden ">
+    <div className="min-h-screen overflow-x-hidden flex justify-center items-center">
       <div className="lg:col-span-3 flex items-center justify-center p-2 sm:p-12 bg-[#FAF9F6]">
         <div className=" max-w-11/12 bg-white p-8 sm:p-12 rounded-xl shadow-2xl">
-          <form
-            onSubmit={handleLogin}
-            className="space-y-6"
-            data-aos="fade-up"
-            data-aos-duration="1000"
-          >
+          <form onSubmit={handleLogin} className="space-y-6">
             <h2 className="text-3xl font-extrabold text-[#264653]">
               Welcome Back!
             </h2>
