@@ -13,6 +13,7 @@ const ServicesDetails = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '' });
   usePageTitle(`${service.serviceName} | WarmPaws`);
+
   const handleBookingSubmit = e => {
     e.preventDefault();
     setIsSubmitting(true);

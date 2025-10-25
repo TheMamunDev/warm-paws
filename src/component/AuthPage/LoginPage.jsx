@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Mail, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
@@ -15,18 +15,12 @@ const LoginPage = () => {
   const from = location.state?.from?.pathname || '/';
   const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    if (!loading && user) {
-      navigate(from, { replace: true });
-    }
-  }, [user, loading, navigate]);
-
-  // if (loading) {
-  //   return <Spinner></Spinner>;
-  // }
-  // if (user) {
-  //   return navigate(from, { replace: true });
-  // }
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+  if (user) {
+    return navigate(from, { replace: true });
+  }
   const handleLogin = e => {
     e.preventDefault();
     const email = e.target.email.value;

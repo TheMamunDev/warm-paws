@@ -69,7 +69,7 @@ const Navbar = () => {
 
         <div className="navbar-end space-x-2">
           {loading ? (
-            <span className="loading loading-dots loading-sm text-[#F4A261] max-w-11/12 mx-auto"></span>
+            <span className="loading loading-dots loading-sm text-[#F4A261]"></span>
           ) : isLoggedIn ? (
             <div className="dropdown dropdown-end">
               <div className="flex items-center gap-3 relative">
