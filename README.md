@@ -49,6 +49,30 @@ all wrapped in an elegant, winter-themed user interface.
 
 ---
 
+### Dependencies
+
+```bash
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.0.1",
+    "@fortawesome/free-brands-svg-icons": "^7.0.1",
+    "@fortawesome/free-regular-svg-icons": "^7.0.1",
+    "@fortawesome/free-solid-svg-icons": "^7.0.1",
+    "@fortawesome/react-fontawesome": "^3.0.2",
+    "@tailwindcss/vite": "^4.1.13",
+    "aos": "^2.3.4",
+    "axios": "^1.12.2",
+    "firebase": "^12.4.0",
+    "lucide-react": "^0.546.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router": "^7.9.3",
+    "react-spinners": "^0.17.0",
+    "react-toastify": "^11.0.5",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.13"
+  },
+```
+
 ## 📦 Key NPM Packages Used
 
 This project relies primarily on **React**, **Tailwind CSS**, and **DaisyUI**
@@ -61,3 +85,32 @@ for rapid development and styling.
 | **`lucide-react`**   | High-quality, customizable icons used throughout the entire application.                                     |
 | **`React-Toastify`** | (Assumed) Used for simple, thematic success notifications (toasts) on form submissions (e.g., Book Service). |
 | **`aos`**            | (Assumed) Animate On Scroll library for tasteful entry animations on sections and cards.                     |
+
+
+### 🚀 Getting Started (Local Setup)
+
+To view and run this project locally, follow these simple steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/TheMamunDev/warm-paws.git
+    ```
+
+2.  **Navigate to the project directory:**
+    ```bash
+    cd warm-paws
+    ```
+3. **Change The Firebase Config**
+    Change firebase config in firebase.init.js
+    add firebase key in .env file
+   
+5. **Run**
+   ```bash
+   npm install
+   npm run dev
+   ```
+### 👨‍💻 Author
+
+This project was developed by **Mahmud Hasan Mamun**.
+
+* **GitHub:** [@TheMamunDev](https://github.com/TheMamunDev)
