@@ -4,7 +4,7 @@ import Home from '../component/Home/Home';
 import Services from '../component/pages/Services';
 import Spinner from '../component/Spinner';
 import ServicesDetails from '../component/pages/ServicesDetails';
-import LoginPage from '../component/AuthPage/LoginPAge';
+import LoginPage from '../component/AuthPage/LoginPage';
 import RegisterPage from '../component/AuthPage/RegisterPage';
 import Profile from '../component/pages/Profile/Profile';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
