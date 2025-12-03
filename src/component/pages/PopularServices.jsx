@@ -4,7 +4,7 @@ import PetCard from './PetCard';
 
 const PopularServices = () => {
   const { pets } = useLoaderData();
-  const serviceData = pets.slice(0, 6);
+  const serviceData = pets.slice(0, 8);
   return (
     <section className="pt-16 bg-background">
       <div
