@@ -1,13 +1,16 @@
 import { Facebook, Instagram, Mail, MapPin, Twitter } from 'lucide-react';
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
 
 const Footer = () => {
+  const { user } = use(AuthContext);
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
-    { name: 'My Profile', path: '/profile' },
-    { name: 'Winter Care Tips', path: '/blog' },
+    { name: 'Winter Care Tips', path: '/blogs' },
+    { name: 'Contact Us', path: '/contact' },
+    { name: 'About Us', path: '/about' },
   ];
 
   const legalLinks = [
@@ -43,6 +46,14 @@ const Footer = () => {
                   {link.name}
                 </NavLink>
               ))}
+              {user && (
+                <NavLink
+                  to={'/profile'}
+                  className="link link-hover text-sm font-light text-gray-300 hover:text-white transition duration-200 block py-1"
+                >
+                  My Profile
+                </NavLink>
+              )}
             </nav>
             <nav>
               <h6 className="footer-title text-[#F4A261] uppercase tracking-wider mb-3 font-semibold">

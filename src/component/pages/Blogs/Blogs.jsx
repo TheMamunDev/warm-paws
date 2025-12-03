@@ -1,8 +1,10 @@
 import React from 'react';
 import { Calendar, User, ArrowRight, Tag } from 'lucide-react';
 import { Link, useLoaderData } from 'react-router';
+import usePageTitle from '../../Hooks/useTitle';
 
 const Blogs = () => {
+  usePageTitle('Blogs | WarmPaws');
   const blogPosts = useLoaderData();
 
   return (

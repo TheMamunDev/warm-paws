@@ -9,8 +9,10 @@ import {
   Smile,
 } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import usePageTitle from '../../Hooks/useTitle';
 
 const About = () => {
+  usePageTitle('About Us | WarmPaws');
   const navigate = useNavigate();
   const teamMembers = [
     {

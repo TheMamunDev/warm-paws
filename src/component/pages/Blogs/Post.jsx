@@ -9,9 +9,11 @@ import {
   Linkedin,
 } from 'lucide-react';
 import { Link, useLoaderData } from 'react-router';
+import usePageTitle from '../../Hooks/useTitle';
 
 const Post = () => {
   const post = useLoaderData();
+  usePageTitle(`${post?.title} | WarmPaws`);
   // const { id } = useParams();
   // const post = blogPosts.find(post => post.id === Number(id));
 
