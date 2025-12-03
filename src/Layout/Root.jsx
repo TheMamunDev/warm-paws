@@ -7,11 +7,13 @@ import { ToastContainer } from 'react-toastify';
 
 const Root = () => {
   const navigation = useNavigation();
-  // console.log(navigation.state);
   return (
-    <div className="max-w-[1920px] mx-auto">
+    <div className="">
       <Navbar />
-      {navigation.state === 'loading' ? <Spinner /> : <Outlet />}
+      <div className="max-w-[1920px] mx-auto">
+        {navigation.state === 'loading' ? <Spinner /> : <Outlet />}
+      </div>
+
       <Footer />
       <ToastContainer />
     </div>

@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
-
-import { AlertTriangle, Star } from 'lucide-react';
+import {
+  MapPin,
+  Clock,
+  Star,
+  CheckCircle,
+  ShieldCheck,
+  User,
+  Heart,
+  AlertTriangle,
+} from 'lucide-react';
 import { NavLink, useLoaderData, useParams } from 'react-router';
-import { toast } from 'react-toastify';
 import usePageTitle from '../Hooks/useTitle';
+import ReletedService from './ReletedService';
+import { toast } from 'react-toastify';
 
-const ServicesDetails = () => {
+const ServiceDetails = () => {
   const { id } = useParams();
-  // console.log(id);
   const allServicesData = useLoaderData();
   const service = allServicesData.find(s => s.serviceId === Number(id));
+
+  usePageTitle(`${service?.serviceName} | WarmPaws`);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '' });
-  usePageTitle(`${service.serviceName} | WarmPaws`);
+
+  const relatedServices = allServicesData
+    .filter(item => item.serviceId !== Number(id))
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 5);
 
   const handleBookingSubmit = e => {
     e.preventDefault();
@@ -38,7 +52,7 @@ const ServicesDetails = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  if (!service) {
+  if (!service || service === undefined) {
     return (
       <div className="min-h-[50vh] flex flex-col items-center justify-center bg-[#FAF9F6] p-10">
         <AlertTriangle size={48} className="text-red-500 mb-4" />
@@ -54,105 +68,152 @@ const ServicesDetails = () => {
   }
 
   return (
-    <div className="max-w-11/12 mx-auto py-10 bg-[#FAF9F6]">
-      <div className="mb-6 text-sm text-gray-500">
-        <NavLink
-          to="/services"
-          className="hover:text-[#F4A261] transition duration-200"
-        >
-          ← Back to All Services
-        </NavLink>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-white p-8 rounded-xl shadow-2xl">
-        <div className="lg:col-span-2">
-          <figure className="aspect-3/2 overflow-hidden rounded-xl shadow-lg mb-8">
-            <img
-              src={service.image}
-              alt={service.serviceName}
-              className="w-full h-full object-cover"
-            />
-          </figure>
-
-          <h1 className="text-2xl md:text-4xl font-extrabold text-[#264653] mb-3">
-            {service.serviceName}
-          </h1>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
-            <div className="flex items-center space-x-3 ">
-              <div className="badge badge-lg bg-[#264653] text-white font-medium border-none">
+    <div className="bg-gray-50 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="lg:col-span-2 space-y-8">
+            <div>
+              <span className="inline-block px-3 py-1 bg-teal-100 text-teal-800 text-sm font-semibold rounded-full mb-3">
                 {service.category}
-              </div>
-              <div className="flex items-center text-[#F4A261] font-semibold">
-                <Star
-                  size={20}
-                  fill="#F4A261"
-                  strokeWidth={0}
-                  className="mr-1"
-                />
-                <span className="text-lg">
-                  {service.rating} ({service.provider} customers)
-                </span>
+              </span>
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                {service.serviceName}
+              </h1>
+
+              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+                <div className="flex items-center gap-1">
+                  <Star className="w-5 h-5 text-yellow-400 fill-current" />
+                  <span className="font-bold text-black">{service.rating}</span>
+                  <span>({service.reviewCount} reviews)</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <MapPin className="w-4 h-4" />
+                  {service.location}
+                </div>
+                <div className="flex items-center gap-1">
+                  <Clock className="w-4 h-4" />
+                  {service.duration}
+                </div>
               </div>
             </div>
-            <div className="flex items-center text-[#264653] font-extrabold">
-              <span className="text-xl"> $ ({service.price} )</span>
+
+            <div className="relative aspect-video w-full overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src={service.image}
+                alt={service.serviceName}
+                className="object-cover w-full h-full"
+              />
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <h2 className="text-xl font-bold text-gray-800 mb-4">
+                About This Service
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {service.description}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {service?.features?.map((feature, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <CheckCircle className="w-5 h-5 text-[#F4A261]" />
+                    <span className="text-gray-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex items-center gap-4">
+              <img
+                src={service.providerImage}
+                alt={service.providerName}
+                className="w-16 h-16 rounded-full object-cover border-2 border-[#F4A261]"
+              />
+              <div>
+                <p className="text-sm text-gray-500">Service Provider</p>
+                <h3 className="text-lg font-bold text-gray-900">
+                  {service.providerName}
+                </h3>
+                <p className="text-sm text-teal-600 font-medium cursor-pointer hover:underline">
+                  Contact Provider
+                </p>
+              </div>
             </div>
           </div>
+          <div className="lg:col-span-1">
+            <div className="sticky top-8 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+              <div className="bg-[#264653] p-6 text-white">
+                <p className="text-sm opacity-90">Service Price</p>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-3xl font-bold">${service.price}</span>
+                  <span className="text-sm opacity-80">/ session</span>
+                </div>
+              </div>
 
-          <h2 className="text-2xl font-bold text-[#264653] mb-3 border-b pb-2">
-            About This Service
-          </h2>
-          <p className="text-gray-600 leading-relaxed">
-            {service?.description}
-          </p>
-          <div className="mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-[#264653]">
-            <p className="font-semibold text-[#264653]">Provided by:</p>
-            <p className="text-gray-700">{service.providerName}</p>
+              <div className="p-6 space-y-4">
+                <div className="flex items-center gap-2 text-sm text-orange-600 bg-orange-50 p-2 rounded-lg border border-orange-100">
+                  <Clock className="w-4 h-4" />
+                  <span className="font-semibold">
+                    Only {service.slotsAvailable} slots left today!
+                  </span>
+                </div>
+                <form onSubmit={handleBookingSubmit} className="space-y-4">
+                  <div className="form-control">
+                    <label className="label pt-0">
+                      <span className="label-text text-[#264653]">
+                        Your Name
+                      </span>
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Full Name"
+                      className="input input-bordered w-full bg-white border-gray-300 focus:border-[#F4A261]"
+                      required
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label pt-0">
+                      <span className="label-text text-[#264653]">Email</span>
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email Address"
+                      className="input input-bordered w-full bg-white border-gray-300 focus:border-[#F4A261]"
+                      required
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="btn btn-lg bg-[#F4A261] hover:bg-[#E76F51] text-white font-bold border-none shadow-xl w-full mt-6 disabled:bg-gray-400"
+                  >
+                    {isSubmitting ? 'Processing...' : 'Book Now'}
+                  </button>
+                </form>
+
+                <div className="flex items-center justify-center gap-2 text-xs text-gray-400 mt-4">
+                  <ShieldCheck className="w-4 h-4" />
+                  Secure Payment & Satisfaction Guarantee
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className="lg:col-span-1 p-6 bg-gray-50 rounded-xl shadow-lg border-t-4 border-[#F4A261] h-fit top-20">
-          <form onSubmit={handleBookingSubmit} className="space-y-4">
-            <div className="form-control">
-              <label className="label pt-0">
-                <span className="label-text text-[#264653]">Your Name</span>
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Full Name"
-                className="input input-bordered w-full bg-white border-gray-300 focus:border-[#F4A261]"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label pt-0">
-                <span className="label-text text-[#264653]">Email</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email Address"
-                className="input input-bordered w-full bg-white border-gray-300 focus:border-[#F4A261]"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="btn btn-lg bg-[#F4A261] hover:bg-[#E76F51] text-white font-bold border-none shadow-xl w-full mt-6 disabled:bg-gray-400"
-            >
-              {isSubmitting ? 'Processing...' : 'Book Now'}
-            </button>
-          </form>
+        <div className="pt-10 border-t border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            More Services You Might Like
+          </h2>
+          <ReletedService relatedServices={relatedServices}></ReletedService>
         </div>
       </div>
     </div>
   );
 };
 
-export default ServicesDetails;
+export default ServiceDetails;

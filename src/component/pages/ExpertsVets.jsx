@@ -28,7 +28,7 @@ const vetData = [
 
 const ExpertsVets = () => {
   return (
-    <section className="max-w-11/12 mx-auto  pb-20">
+    <section className="p-4 mx-auto pb-20">
       <div
         className="text-center mb-16"
         data-aos="fade-down"

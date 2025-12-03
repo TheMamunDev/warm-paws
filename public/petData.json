@@ -4,143 +4,263 @@
     "serviceName": "Winter Coat Fitting for Dogs",
     "providerName": "PawCare Studio",
     "providerEmail": "info@pawcare.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/12.jpg",
     "price": 25,
     "rating": 4.9,
+    "reviewCount": 84,
     "slotsAvailable": 4,
-    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold. We measure your pet precisely to ensure full mobility and maximum warmth.",
     "image": "https://i.ibb.co.com/RpV78fTM/71-Fdqq5v8g-L-UF1000-1000-QL80.jpg",
-    "category": "Clothing"
+    "category": "Clothing",
+    "duration": "30 min",
+    "location": "45 Fashion Ave, New York, NY",
+    "features": [
+      "Precise body measurements",
+      "Wide selection of thermal fabrics",
+      "Mobility check during fitting",
+      "10% off first coat purchase"
+    ]
   },
   {
     "serviceId": 2,
     "serviceName": "Winter Grooming & Paw Treatment",
     "providerName": "CozyPets Grooming",
     "providerEmail": "hello@cozypets.com",
+    "providerImage": "https://randomuser.me/api/portraits/men/32.jpg",
     "price": 30,
     "rating": 4.8,
+    "reviewCount": 156,
     "slotsAvailable": 3,
-    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo. Perfect for removing salt residue and preventing cracked pads.",
     "image": "https://i.ibb.co.com/hxLWgptP/level-2-dog-grooming-course-scaled.webp",
-    "category": "Grooming"
+    "category": "Grooming",
+    "duration": "60 min",
+    "location": "102 Groom St, Brooklyn, NY",
+    "features": [
+      "Deep cleaning salt-removal bath",
+      "Healing paw balm application",
+      "Nail trimming included",
+      "Coat fluff drying"
+    ]
   },
   {
     "serviceId": 3,
     "serviceName": "Pet Thermal Bedding Setup",
     "providerName": "WarmPaws Home Care",
     "providerEmail": "support@warmpaws.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/65.jpg",
     "price": 40,
     "rating": 4.7,
+    "reviewCount": 42,
     "slotsAvailable": 5,
-    "description": "Install thermal and heated bedding to keep pets cozy during winter nights.",
+    "description": "Install thermal and heated bedding to keep pets cozy during winter nights. We ensure all electrical components are safe and chew-proof.",
     "image": "https://i.ibb.co.com/jvv31M8r/71v6-OLt7k-L.jpg",
-    "category": "Home Comfort"
+    "category": "Home Comfort",
+    "duration": "45 min",
+    "location": "Home Visit (Your Address)",
+    "features": [
+      "Safe electrical installation",
+      "Chew-proof cord protectors",
+      "Temperature control setup",
+      "Demonstration of usage"
+    ]
   },
   {
     "serviceId": 4,
     "serviceName": "Winter Paw Wax Application",
     "providerName": "HappyPaws Clinic",
     "providerEmail": "contact@happypaws.com",
+    "providerImage": "https://randomuser.me/api/portraits/men/85.jpg",
     "price": 15,
     "rating": 4.8,
+    "reviewCount": 210,
     "slotsAvailable": 6,
-    "description": "Protect your pet’s paws from ice, snow, and salt with special paw wax.",
+    "description": "Protect your pet’s paws from ice, snow, and salt with special paw wax. A quick and essential treatment for active winter walkers.",
     "image": "https://i.ibb.co.com/TxbCgrJs/71-Pa-B9jl7s-L-AC-UL495-SR435-495.jpg",
-    "category": "Paw Care"
+    "category": "Paw Care",
+    "duration": "20 min",
+    "location": "HappyPaws Clinic, Suite 4",
+    "features": [
+      "Premium Musher's Secret wax",
+      "Trim between toes",
+      "Salt barrier protection",
+      "Take-home sample included"
+    ]
   },
   {
     "serviceId": 5,
     "serviceName": "Cold Weather Pet Massage",
     "providerName": "PetRelax Spa",
     "providerEmail": "info@petrelax.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/28.jpg",
     "price": 50,
     "rating": 4.9,
+    "reviewCount": 95,
     "slotsAvailable": 2,
-    "description": "Relaxing massage to improve circulation and warmth during winter months.",
+    "description": "Relaxing massage to improve circulation and warmth during winter months. Great for senior dogs with arthritis aggravated by the cold.",
     "image": "https://i.ibb.co.com/NdR7DNJJ/1.png",
-    "category": "Wellness"
+    "category": "Wellness",
+    "duration": "50 min",
+    "location": "Zen Pet Spa, Downtown",
+    "features": [
+      "Circulation boosting techniques",
+      "Joint mobility gentle stretch",
+      "Warm towel therapy",
+      "Calming aromatherapy"
+    ]
   },
   {
     "serviceId": 6,
     "serviceName": "Winter Coat Conditioning",
     "providerName": "FurEver Groomers",
     "providerEmail": "hello@furevergroomers.com",
+    "providerImage": "https://randomuser.me/api/portraits/men/11.jpg",
     "price": 35,
     "rating": 4.7,
+    "reviewCount": 67,
     "slotsAvailable": 4,
-    "description": "Deep conditioning treatment to maintain a shiny, thick coat during cold months.",
+    "description": "Deep conditioning treatment to maintain a shiny, thick coat during cold months. Combats dry skin and static caused by indoor heating.",
     "image": "https://i.ibb.co.com/YFrpRf9Q/Cpq-Y2-N-large-520x500-dc8c1447-1c1f-4dc7-a3a1-69d15cd2aae4-480x.jpg",
-    "category": "Grooming"
+    "category": "Grooming",
+    "duration": "45 min",
+    "location": "102 Groom St, Brooklyn, NY",
+    "features": [
+      "Hydrating oil treatment",
+      "Anti-static spray finish",
+      "Deshedding brush out",
+      "Skin health check"
+    ]
   },
   {
     "serviceId": 7,
     "serviceName": "Dog Snow Boot Fitting",
     "providerName": "PawSafe Outfitters",
     "providerEmail": "contact@pawsafe.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/90.jpg",
     "price": 20,
     "rating": 4.8,
+    "reviewCount": 112,
     "slotsAvailable": 3,
-    "description": "Fitting of waterproof snow boots to protect dogs’ paws from cold and ice.",
+    "description": "Fitting of waterproof snow boots to protect dogs’ paws from cold and ice. We teach you how to put them on easily and ensure they stay on.",
     "image": "https://i.ibb.co.com/TMxbr4g7/DSCF9486-fallback.jpg",
-    "category": "Clothing"
+    "category": "Clothing",
+    "duration": "30 min",
+    "location": "45 Fashion Ave, New York, NY",
+    "features": [
+      "Measurement for secure fit",
+      "Trial walk practice",
+      "Various brands available",
+      "Velcro adjustment tutorial"
+    ]
   },
   {
     "serviceId": 8,
     "serviceName": "Indoor Exercise & Winter Play Session",
     "providerName": "ActivePaws Center",
     "providerEmail": "info@activepaws.com",
+    "providerImage": "https://randomuser.me/api/portraits/men/54.jpg",
     "price": 25,
     "rating": 4.9,
+    "reviewCount": 180,
     "slotsAvailable": 5,
-    "description": "Supervised indoor activity sessions to keep pets active and healthy during winter.",
+    "description": "Supervised indoor activity sessions to keep pets active and healthy during winter. Includes agility tunnels, puzzle games, and socialization.",
     "image": "https://i.ibb.co.com/WvWT9QTq/Adobe-Stock-817505259-scaled.jpg",
-    "category": "Exercise"
+    "category": "Exercise",
+    "duration": "90 min",
+    "location": "ActivePaws Gym, Queens",
+    "features": [
+      "Climate controlled play area",
+      "Agility course access",
+      "Socialization with other dogs",
+      "Trained trainers supervision"
+    ]
   },
   {
     "serviceId": 9,
     "serviceName": "Winter Hydration & Nutrition Plan",
     "providerName": "HealthyPets Nutrition",
     "providerEmail": "support@healthypets.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/33.jpg",
     "price": 30,
     "rating": 4.7,
+    "reviewCount": 55,
     "slotsAvailable": 6,
-    "description": "Custom winter diet and hydration plan to boost pet immunity in cold weather.",
+    "description": "Custom winter diet and hydration plan to boost pet immunity in cold weather. Tailored advice on calorie intake for less active winter months.",
     "image": "https://i.ibb.co.com/1ftt2xkt/20240329-Dog-Food-Update-2x1.webp",
-    "category": "Nutrition"
+    "category": "Nutrition",
+    "duration": "45 min (Virtual or In-person)",
+    "location": "HealthyPets Clinic or Zoom",
+    "features": [
+      "Calorie calculation",
+      "Hydration strategies",
+      "Supplement recommendations",
+      "Written diet plan PDF"
+    ]
   },
   {
     "serviceId": 10,
     "serviceName": "Pet Winter Safety Consultation",
     "providerName": "SafePaws Advisors",
     "providerEmail": "hello@safepaws.com",
+    "providerImage": "https://randomuser.me/api/portraits/men/76.jpg",
     "price": 45,
     "rating": 4.8,
+    "reviewCount": 29,
     "slotsAvailable": 3,
-    "description": "Expert consultation on winter safety, clothing, and outdoor exposure limits for pets.",
+    "description": "Expert consultation on winter safety, clothing, and outdoor exposure limits for pets. Learn signs of hypothermia and frostbite.",
     "image": "https://i.ibb.co.com/przCffdj/Untitled-2-Facebook-Post-Graphic-2.png",
-    "category": "Consultation"
+    "category": "Consultation",
+    "duration": "60 min",
+    "location": "Veterinary Center",
+    "features": [
+      "Risk assessment for your breed",
+      "Hypothermia recognition training",
+      "Emergency kit checklist",
+      "Q&A session"
+    ]
   },
   {
     "serviceId": 11,
     "serviceName": "Heated Pet Blanket Rental",
     "providerName": "CozyCompanions",
     "providerEmail": "info@cozycompanions.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/5.jpg",
     "price": 15,
     "rating": 4.6,
+    "reviewCount": 110,
     "slotsAvailable": 10,
-    "description": "Rent heated blankets for your pets to keep them warm without permanent installation.",
+    "description": "Rent heated blankets for your pets to keep them warm without permanent installation. Perfect for travel or temporary cold snaps.",
     "image": "https://i.ibb.co.com/1fj7DNtp/71-Hl-Z84-ZLTL.jpg",
-    "category": "Home Comfort"
+    "category": "Home Comfort",
+    "duration": "7 Days Rental",
+    "location": "Pickup at Central Station",
+    "features": [
+      "Low-voltage safety tech",
+      "Machine washable cover",
+      "Auto-shutoff timer",
+      "Sanitized before rental"
+    ]
   },
   {
     "serviceId": 12,
     "serviceName": "Winter Flea & Tick Protection",
     "providerName": "PetHealth Clinic",
     "providerEmail": "contact@pethealth.com",
+    "providerImage": "https://randomuser.me/api/portraits/women/44.jpg",
     "price": 40,
     "rating": 4.9,
+    "reviewCount": 128,
     "slotsAvailable": 4,
-    "description": "Prevent fleas and ticks that survive in winter with a seasonal protective treatment.",
+    "description": "Prevent fleas and ticks that survive in winter with a seasonal protective treatment. Includes a full coat check and medication application.",
     "image": "https://i.ibb.co.com/YH7q1Rf/2024-02-22-Flea-and-tick-prevention-in-winter-Hero.jpg",
-    "category": "Health"
+    "category": "Health",
+    "duration": "45 min",
+    "location": "123 Paws Avenue, New York, NY",
+    "features": [
+      "Vet-approved medication",
+      "Full coat inspection",
+      "Pest-free guarantee for 30 days",
+      "Free follow-up consultation"
+    ]
   }
 ]

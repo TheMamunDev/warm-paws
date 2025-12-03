@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, use } from 'react';
 import { Search, Sliders } from 'lucide-react';
 import { useLoaderData } from 'react-router';
 import PetCard from './PetCard';
@@ -9,11 +9,12 @@ const Services = () => {
   usePageTitle('Services - WarmPaws');
   const pets = useLoaderData();
   const allServicesData = pets;
+  console.log(allServicesData);
   const categories = [...new Set(allServicesData.map(item => item.category))];
-  // console.log(categories);
   const priceData = allServicesData.map(el => el.price);
   const priceRange = Math.max(...priceData);
   const [searchTerm, setSearchTerm] = useState('');
+  const [sort, setSort] = useState('latest');
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [maxPrice, setMaxPrice] = useState(priceRange);
@@ -21,6 +22,7 @@ const Services = () => {
   const handleClearBtn = () => {
     setSearchTerm('');
     setMaxPrice(priceRange);
+    setSort('latest');
     setSelectedCategory('All');
   };
 
@@ -30,10 +32,10 @@ const Services = () => {
       setLoading(false);
     }, 500);
     return () => clearTimeout(timeout);
-  }, [searchTerm, selectedCategory, maxPrice]);
+  }, [searchTerm, selectedCategory, maxPrice, sort]);
 
   const filteredServices = useMemo(() => {
-    return allServicesData.filter(service => {
+    let filteredServices = allServicesData.filter(service => {
       const matchesSearch = service.serviceName
         .toLowerCase()
         .includes(searchTerm.toLowerCase());
@@ -42,6 +44,16 @@ const Services = () => {
       const matchesPrice = service.price <= maxPrice;
       return matchesSearch && matchesCategory && matchesPrice;
     });
+    sort === 'price-asc'
+      ? filteredServices.sort((a, b) => a.price - b.price)
+      : sort === 'price-desc'
+      ? filteredServices.sort((a, b) => b.price - a.price)
+      : filteredServices;
+    return filteredServices;
+  }, [searchTerm, selectedCategory, maxPrice, sort]);
+
+  useEffect(() => {
+    setLoading(true);
   }, [searchTerm, selectedCategory, maxPrice]);
 
   return (
@@ -125,9 +137,29 @@ const Services = () => {
           </aside>
 
           <div className="lg:col-span-3">
-            <h2 className="text-xl font-semibold text-[#264653] mb-4">
-              Showing {filteredServices.length} Results
-            </h2>
+            <div className="flex flex-col md:flex-row justify-between items-center mb-3.5">
+              <h2 className="text-xl font-semibold text-[#264653] mb-4">
+                Showing {filteredServices.length} Results
+              </h2>
+              <div className="flex items-center justify-end">
+                <label className="label mr-5">
+                  <span className="label-text font-medium text-secondary">
+                    Sort By
+                  </span>
+                </label>
+                <select
+                  name="sort"
+                  className="select select-bordered border-gray-200 text-neutral w-2/3 focus:border-primary focus:ring-primary"
+                  onChange={e => setSort(e.target.value)}
+                  value={sort}
+                >
+                  <option value="latest">Default</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                </select>
+              </div>
+            </div>
+
             {loading ? (
               <Skeleton count={allServicesData.length}></Skeleton>
             ) : (

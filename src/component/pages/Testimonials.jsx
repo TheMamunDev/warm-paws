@@ -11,7 +11,7 @@ const Testimonials = () => {
   return (
     <section className="bg-[#FAF9F6] py-20">
       {' '}
-      <div className="max-w-11/12 mx-auto ">
+      <div className="px-4 mx-auto ">
         <div
           className="text-center mb-12"
           data-aos="fade-down"
@@ -28,10 +28,11 @@ const Testimonials = () => {
           <Swiper
             modules={[Pagination, Autoplay]}
             spaceBetween={30}
+            className="!pb-12 [&_.swiper-pagination]:!static [&_.swiper-pagination]:!mt-4"
             pagination={{
               clickable: true,
               bulletClass: 'swiper-pagination-bullet bg-gray-300',
-              bulletActiveClass: 'bg-[#F4A261]',
+              bulletActiveClass: '!bg-[#F4A261]',
             }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             loop={true}
@@ -40,10 +41,9 @@ const Testimonials = () => {
               768: { slidesPerView: 2, spaceBetween: 30 },
               1024: { slidesPerView: 3, spaceBetween: 40 },
             }}
-            className="pb-12"
           >
             {testimonials.map(testimonial => (
-              <SwiperSlide key={testimonial.id}>
+              <SwiperSlide key={testimonial.id} className="!h-auto">
                 <div className="card-body border-b-4 flex flex-col h-full ">
                   <div className="flex justify-between items-center mb-4">
                     <Quote size={40} className="text-[#264653] opacity-20" />
